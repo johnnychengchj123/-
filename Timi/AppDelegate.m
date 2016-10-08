@@ -12,6 +12,10 @@
 #import <MMDrawerController.h>
 #import "TMSideViewController.h"
 #import "Const.h"
+#import "TMPiewViewController.h"
+#import "HomePageViewController.h"
+#import "TMScrollViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -22,19 +26,32 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self didChangeStatusFrameNotification];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    TMControlManagerViewController *controlManageVC = [[TMControlManagerViewController alloc] init];
-    UINavigationController *controlManagerVCNV = [[UINavigationController alloc] initWithRootViewController:controlManageVC];
+    
+    
+//    TMControlManagerViewController *controlManageVC = [[TMControlManagerViewController alloc] init];
+//    HomePageViewController *controlManageVC = [[HomePageViewController alloc] init];
+
+//    UINavigationController *controlManagerVCNV = [[UINavigationController alloc] initWithRootViewController:controlManageVC];
     
     TMSideViewController *sideVC = [[TMSideViewController alloc] init];
+    TMScrollViewController *scrollVC =  [[TMScrollViewController alloc]init];
+ 
+    self.LeftSlideVC = [[LeftSlideViewController alloc] initWithLeftView:sideVC andMainView:scrollVC];
+    self.window.rootViewController = self.LeftSlideVC;
+    
+//    [[UINavigationBar appearance] setBarTintColor:[UIColor clearColor]];
+//    [[UINavigationBar appearance] setBackgroundColor:[UIColor clearColor]];
 
-    MMDrawerController *drawerController = [[MMDrawerController alloc] initWithCenterViewController:controlManagerVCNV leftDrawerViewController:sideVC];
-    /** 设置打开/关闭抽屉的手势 */
-    drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
-    drawerController.closeDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
-    drawerController.showsShadow = NO;
+ 
+//    
+//    MMDrawerController *drawerController = [[MMDrawerController alloc] initWithCenterViewController:controlManagerVCNV leftDrawerViewController:sideVC];
+//    /** 设置打开/关闭抽屉的手势 */
+//    drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+//    drawerController.closeDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+//    drawerController.showsShadow = NO;
     /** 设置左边抽屉显示的多少 */
-    drawerController.maximumLeftDrawerWidth = SCREEN_SIZE.width - 50;
-    self.window.rootViewController = drawerController;
+//    drawerController.maximumLeftDrawerWidth = SCREEN_SIZE.width - 50;
+//    self.window.rootViewController = drawerController;
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -74,6 +74,9 @@
 		87C9FB081D21A075008DFD65 /* TMAddBooKCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9FB071D21A075008DFD65 /* TMAddBooKCell.m */; };
 		87F8687B1CE9E78300B23EEA /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F8687A1CE9E78300B23EEA /* libc++.tbd */; };
 		B22CF99B1DA7404A0093AAFA /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22CF99A1DA7404A0093AAFA /* Reveal.framework */; };
+		B279DE361DA7C2E900890472 /* LeftSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B279DE331DA7C2E900890472 /* LeftSlideViewController.m */; };
+		B279DE371DA7C2E900890472 /* UIView_extra.m in Sources */ = {isa = PBXBuildFile; fileRef = B279DE351DA7C2E900890472 /* UIView_extra.m */; };
+		B279DE3A1DA7EBA700890472 /* TMScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B279DE391DA7EBA700890472 /* TMScrollViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -203,6 +206,12 @@
 		87F868731CE9E5F600B23EEA /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		87F8687A1CE9E78300B23EEA /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		B22CF99A1DA7404A0093AAFA /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		B279DE321DA7C2E900890472 /* LeftSlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSlideViewController.h; sourceTree = "<group>"; };
+		B279DE331DA7C2E900890472 /* LeftSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSlideViewController.m; sourceTree = "<group>"; };
+		B279DE341DA7C2E900890472 /* UIView_extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView_extra.h; sourceTree = "<group>"; };
+		B279DE351DA7C2E900890472 /* UIView_extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView_extra.m; sourceTree = "<group>"; };
+		B279DE381DA7EBA700890472 /* TMScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMScrollViewController.h; sourceTree = "<group>"; };
+		B279DE391DA7EBA700890472 /* TMScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMScrollViewController.m; sourceTree = "<group>"; };
 		D1FD72026565254A34E74F97 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DC5A3B4A33CE1DBC2E786C24 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -680,6 +689,7 @@
 		87F866E51CE9E57000B23EEA /* Vendor第三方类 */ = {
 			isa = PBXGroup;
 			children = (
+				B279DE311DA7C2E900890472 /* LeftSlideViewController */,
 				87847F1A1D06C700008F283B /* iCarousel */,
 				8771B2CA1CFFBCE2008751E5 /* UITextView_PlaceHolder */,
 				8771B2B61CFF176F008751E5 /* SZCalendarPicker */,
@@ -689,6 +699,19 @@
 			);
 			name = "Vendor第三方类";
 			path = Main/Vendor;
+			sourceTree = "<group>";
+		};
+		B279DE311DA7C2E900890472 /* LeftSlideViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B279DE321DA7C2E900890472 /* LeftSlideViewController.h */,
+				B279DE331DA7C2E900890472 /* LeftSlideViewController.m */,
+				B279DE341DA7C2E900890472 /* UIView_extra.h */,
+				B279DE351DA7C2E900890472 /* UIView_extra.m */,
+				B279DE381DA7EBA700890472 /* TMScrollViewController.h */,
+				B279DE391DA7EBA700890472 /* TMScrollViewController.m */,
+			);
+			path = LeftSlideViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -829,12 +852,14 @@
 				872331E71D1AF28A004F558D /* TMPiewCategoryDetailCell.m in Sources */,
 				87C585CB1D2A13A40034DE32 /* NSString+TMNSString.m in Sources */,
 				87265BA61CEA131A0020406E /* LYBaseViewController.m in Sources */,
+				B279DE371DA7C2E900890472 /* UIView_extra.m in Sources */,
 				87C1CBE01CFD92D000DD9C62 /* TYPagerController.m in Sources */,
 				874C98D21CF0BF7700B4212A /* TMButton.m in Sources */,
 				874C98BC1CF052AC00B4212A /* TMTimeLineCell.m in Sources */,
 				870D881B1D1D901D0038C375 /* CCColorCube.m in Sources */,
 				87053A321CF5F606005F577F /* TMCreateHeaderView.m in Sources */,
 				8748F09A1D1EE0B700343355 /* TMSideButton.m in Sources */,
+				B279DE361DA7C2E900890472 /* LeftSlideViewController.m in Sources */,
 				87278A251D16EA2B003822A0 /* TMModifyCategoryNameView.m in Sources */,
 				874C98C91CF052BB00B4212A /* TMDataBaseManager.m in Sources */,
 				870E1EDA1CDC21C300E45DD4 /* AppDelegate.m in Sources */,
@@ -846,6 +871,7 @@
 				87A95D1F1CF748D20055B9A7 /* TMCalculatorView.m in Sources */,
 				8707CD1B1D21638E001B23DE /* TMBooks.m in Sources */,
 				87C585CA1D2A13A40034DE32 /* NSArray+TMNSArray.m in Sources */,
+				B279DE3A1DA7EBA700890472 /* TMScrollViewController.m in Sources */,
 				87847F261D0724EA008F283B /* TMLabel.m in Sources */,
 				8705F2291CF53BB600C93B7B /* TMCreateBillViewController.m in Sources */,
 				87C9FB081D21A075008DFD65 /* TMAddBooKCell.m in Sources */,

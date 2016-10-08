@@ -25,6 +25,8 @@
 #import "TMCategoryButton.h"
 #import "NSString+TMNSString.h"
 #import "NSArray+TMNSArray.h"
+#import "AppDelegate.h"
+
 //* 导航栏字体大小 */
 #define kTitleTextFont 14.0f
 //* 导航栏btnSize */
@@ -93,7 +95,8 @@ UIViewControllerTransitioningDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+
+
     _book = [[TMDataBaseManager defaultManager] queryBooksWithBookID:[NSString readUserDefaultOfSelectedBookID]];
     
     [self layoutSubviews];
@@ -108,9 +111,9 @@ UIViewControllerTransitioningDelegate
     [[TMDataBaseManager defaultManager] numberOfAllBooksCount];// ignory
 
     
-    UIScreenEdgePanGestureRecognizer *screenEdgeGR = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(clickMenuBtn:)];
-    screenEdgeGR.edges = UIRectEdgeLeft;
-    [self.view addGestureRecognizer:screenEdgeGR];
+//    UIScreenEdgePanGestureRecognizer *screenEdgeGR = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(clickMenuBtn:)];
+//    screenEdgeGR.edges = UIRectEdgeLeft;
+//    [self.view addGestureRecognizer:screenEdgeGR];
     
     [self registerNotification];
 }
@@ -118,7 +121,7 @@ UIViewControllerTransitioningDelegate
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     //设置打开抽屉模式
-    [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+//    [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
 
 }
 #pragma mark - Notification
@@ -192,11 +195,12 @@ UIViewControllerTransitioningDelegate
     return CGSizeMake(width, 25);
 }
 - (void)layoutSubviews {
-
+    
     self.timeLineMenuView = [[TMTimeLineMenuView alloc] initWithFrame:self.view.frame];
     self.timeLineMenuView.timeLineMenuDelegate = self;
     [self.view addSubview:self.timeLineMenuView];
-    
+    _timeLineMenuView.hidden = YES;
+
     self.dropdownLineView = [[UIView alloc] initWithFrame:CGRectMake((SCREEN_SIZE.width-1)/2,0 , 1, 0)];
     self.dropdownLineView.backgroundColor = LineColor;
     [self.tableView addSubview:self.dropdownLineView];
@@ -297,12 +301,10 @@ UIViewControllerTransitioningDelegate
 }
 #pragma mark - Item Action
 - (void)clickMenuBtn:(UIButton *)sender {
-//    NSLog(@"click MenuBtn");
-    //* 不加判断则会 开->关->开 无限循环 */
-    if (self.mm_drawerController.openSide == MMDrawerSideNone) {
-        [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
-        return;
-    }
+ 
+     AppDelegate *tempAppDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+     [tempAppDelegate.LeftSlideVC openLeftView];//关闭左侧抽屉
+
     
 }
 - (void)clickCameraBtn:(UIButton *)sender {
@@ -389,6 +391,8 @@ UIViewControllerTransitioningDelegate
     CGRect rect = [self.tableView rectForRowAtIndexPath:indexPath];
     //* 转换成在self.view中的位置 */
     CGRect rectInSuperview = [self.tableView convertRect:rect toView:[self.tableView superview]];
+    _timeLineMenuView.hidden = NO;
+
     self.timeLineMenuView.currentImage = self.timeLineCell.categoryImageBtn.currentImage;
     [self.timeLineMenuView showTimeLineMenuViewWithRect:rectInSuperview ];
 }
